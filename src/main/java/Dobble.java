@@ -16,6 +16,12 @@ public class Dobble {
         this.cardsDeck = cardsDeck;
     }
 
+    public void addCard(List card){
+        cardsDeck.add(card);
+
+    }
+
+
     @Override
     public String toString() {
         return "Dobble{" +

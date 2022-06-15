@@ -1,3 +1,4 @@
+import java.sql.SQLOutput;
 import java.util.List;
 
 public class DobbleGame {
@@ -15,7 +16,6 @@ public class DobbleGame {
         this.gameNumPlayers = gameNumPlayers;
         this.gameMode = gameMode;
     }
-
     public List getGameArea() {
         return gameArea;
     }
