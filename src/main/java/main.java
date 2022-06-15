@@ -22,62 +22,45 @@ public class main {
             opt = sc.nextInt();
         } while (opt != 1 && opt != 2 && opt != 3 && opt != 4);
 
-        int n = 3;
+        int n = 5;
 
-        ArrayList card = new ArrayList();
-        ArrayList cards = new ArrayList();
-        ArrayList tempCard = new ArrayList();
-
-        Card carta = new Card(card);
-        Dobble mazo = new Dobble(cards);
-
-
+        ArrayList<Integer> card = new ArrayList();
+        Dobble mazo = new Dobble();
 
 
         //to start, we build the first card
         for (int i = 1; i <= n + 1; i++) {
-            carta.addElements(i);
-            tempCard.addAll(carta.getListElements());
+            card.add(i);
 
-
-
-
-            mazo.addCard(tempCard);
-            tempCard.clear();
         }
+        mazo.addCard(card);
+
 
         //then we build the next n number of cards
         for (int j = 1; j <= n; j++) {
-            carta.clearCard();
-            carta.addElements(1);
+            card.clear();
+            card.add(1);
 
             for (int k = 1; k <= n; k++) {
-                carta.addElements(n * j + (k + 1));
+                card.add(n * j + (k + 1));
             }
 
-            Collections.copy(carta.getListElements(), tempCard);
-
-            mazo.addCard(tempCard);
-            tempCard.clear();
+            mazo.addCard(card);
 
         }
         //finally we build the next n² number of cards
         for (int i = 1; i <= n; i++) {
             for (int j = 1; j <= n; j++) {
-                carta.clearCard();
-                tempCard.clear();
-                carta.addElements(i + 1);
+                card.clear();
+                card.add(i + 1);
 
                 for (int k = 1; k <= n; k++) {
-                    carta.addElements(n + 2 + n * (k - 1) + (((i - 1) * (k - 1) + j - 1) % n));
+                    card.add(n + 2 + n * (k - 1) + (((i - 1) * (k - 1) + j - 1) % n));
                 }
-                tempCard.addAll(carta.getListElements());
-                mazo.addCard(tempCard);
+                mazo.addCard(card);
             }
         }
-
-        System.out.println(mazo.getCardsDeck());
-
+        System.out.println(mazo.toString());
     }
 
 }

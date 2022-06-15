@@ -1,19 +1,12 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Card {
 
-    private List listElements;
+    private ArrayList<Integer> listElements;
 
-    public Card (List listElements){
-        this.listElements = listElements;
-    }
-
-    public List getListElements() {
-        return listElements;
-    }
-
-    public void setListElements(List listElements) {
-        this.listElements = listElements;
+    public Card (ArrayList<Integer> listElements){
+        this.listElements = (ArrayList)listElements.clone();
     }
 
     public void addElements(int element){
@@ -24,11 +17,8 @@ public class Card {
         listElements.clear();
     }
 
-
     @Override
     public String toString() {
-        return "Card{" +
-                "listElements=" + listElements +
-                '}';
+        return listElements + "\n";
     }
 }

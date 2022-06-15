@@ -1,11 +1,12 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Dobble {
 
-    private List cardsDeck;
+    private List<Card> cardsDeck;
 
-    public Dobble (List cardsDeck){
-        this.cardsDeck = cardsDeck;
+    public Dobble (){
+        this.cardsDeck = new ArrayList<>();
     }
 
     public List getCardsDeck() {
@@ -16,16 +17,14 @@ public class Dobble {
         this.cardsDeck = cardsDeck;
     }
 
-    public void addCard(List card){
-        cardsDeck.add(card);
-
+    public void addCard(ArrayList<Integer> card){
+        Card carta = new Card(card);
+        this.cardsDeck.add(carta);
     }
-
 
     @Override
     public String toString() {
-        return "Dobble{" +
-                "cardsDeck=" + cardsDeck +
-                '}';
+        return cardsDeck.toString();
+
     }
 }
