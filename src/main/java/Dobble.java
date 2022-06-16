@@ -1,19 +1,21 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Collections;
 
 public class Dobble {
 
-    private List<Card> cardsDeck;
+    private ArrayList<Card> cardsDeck;
 
     public Dobble (){
         this.cardsDeck = new ArrayList<>();
     }
 
-    public List getCardsDeck() {
+    public ArrayList getCardsDeck() {
         return cardsDeck;
     }
 
-    public void setCardsDeck(List cardsDeck) {
+    public void setCardsDeck(ArrayList cardsDeck) {
         this.cardsDeck = cardsDeck;
     }
 
@@ -21,6 +23,23 @@ public class Dobble {
         Card carta = new Card(card);
         this.cardsDeck.add(carta);
     }
+
+    public Card nthCard(ArrayList cardsDeck, int n){
+        return this.cardsDeck.get(n);
+    }
+
+    public int findTotalCards(Card carta){
+        int order = carta.getListElements().size()-1;
+        int totalCards = order*order+order+1;
+        return totalCards;
+    }
+
+    public int requiredElements(Card carta){
+        int order = carta.getListElements().size()-1;
+        int totalElements = order*order+order+1;
+        return totalElements;
+    }
+    
 
     @Override
     public String toString() {

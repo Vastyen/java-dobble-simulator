@@ -22,33 +22,23 @@ public class main {
             opt = sc.nextInt();
         } while (opt != 1 && opt != 2 && opt != 3 && opt != 4);
 
-        int n = 5;
+        int n = 7;
 
         ArrayList<Integer> card = new ArrayList();
         Dobble mazo = new Dobble();
 
-
-        //to start, we build the first card
         for (int i = 1; i <= n + 1; i++) {
             card.add(i);
-
         }
         mazo.addCard(card);
-
-
-        //then we build the next n number of cards
         for (int j = 1; j <= n; j++) {
             card.clear();
             card.add(1);
-
             for (int k = 1; k <= n; k++) {
                 card.add(n * j + (k + 1));
             }
-
             mazo.addCard(card);
-
         }
-        //finally we build the next n² number of cards
         for (int i = 1; i <= n; i++) {
             for (int j = 1; j <= n; j++) {
                 card.clear();
@@ -60,7 +50,22 @@ public class main {
                 mazo.addCard(card);
             }
         }
-        System.out.println(mazo.toString());
+
+        ArrayList cardsSet = mazo.getCardsDeck();
+
+        int index = 3;
+
+        Card nthCard = mazo.nthCard(cardsSet,  index);
+
+        System.out.println(nthCard.getListElements());
+
+
+
+        System.out.println(mazo.findTotalCards(nthCard));
+
+        System.out.println(mazo.requiredElements(nthCard));
+
+
     }
 
 }

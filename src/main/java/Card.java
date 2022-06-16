@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.List;
 
 public class Card {
 
@@ -9,12 +8,12 @@ public class Card {
         this.listElements = (ArrayList)listElements.clone();
     }
 
-    public void addElements(int element){
-        listElements.add(element);
+    public ArrayList<Integer> getListElements() {
+        return listElements;
     }
 
-    public void clearCard(){
-        listElements.clear();
+    public void setListElements(ArrayList<Integer> listElements) {
+        this.listElements = listElements;
     }
 
     @Override

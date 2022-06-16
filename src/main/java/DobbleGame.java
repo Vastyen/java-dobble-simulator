@@ -4,12 +4,12 @@ import java.util.List;
 public class DobbleGame {
 
     private List gameArea;
-    private Dobble gameDeck;
+    private List gameDeck;
     private List gamePlayers;
     private int gameNumPlayers;
     private String gameMode;
 
-    public DobbleGame(List gameArea, Dobble gameDeck, List gamePlayers, int gameNumPlayers, String gameMode) {
+    public DobbleGame(List gameArea, List gameDeck, List gamePlayers, int gameNumPlayers, String gameMode) {
         this.gameArea = gameArea;
         this.gameDeck = gameDeck;
         this.gamePlayers = gamePlayers;
@@ -24,11 +24,11 @@ public class DobbleGame {
         this.gameArea = gameArea;
     }
 
-    public Dobble getGameDeck() {
+    public List getGameDeck() {
         return gameDeck;
     }
 
-    public void setGameDeck(Dobble gameDeck) {
+    public void setGameDeck(List gameDeck) {
         this.gameDeck = gameDeck;
     }
 
