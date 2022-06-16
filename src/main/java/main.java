@@ -59,12 +59,8 @@ public class main {
 
         System.out.println(nthCard.getListElements());
 
-
-
         System.out.println(mazo.findTotalCards(nthCard));
-
         System.out.println(mazo.requiredElements(nthCard));
-
 
     }
 

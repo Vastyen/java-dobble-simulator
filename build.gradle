@@ -1,16 +1,27 @@
-apply plugin: 'java'
-apply plugin: 'jacoco'
-apply plugin: 'application'
-
-
-mainClassName = 'main.Main'
-run {
-    standardInput = System.in
+plugins {
+    id 'java'
 }
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
 repositories {
-    jcenter()
+    mavenCentral()
 }
 
 dependencies {
-    testImplementation     'junit:junit:4.13'
+    implementation 'org.jetbrains:annotations:23.0.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+java {
+    modularity.inferModulePath = true
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(11))
+    }
 }
