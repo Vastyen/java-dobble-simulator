@@ -57,20 +57,20 @@ Dobble es un juego de mesa de cartas, el maso se conforma de 55 cartas las cuale
 
   ### Uso
 
-        Clonar el repositorio (https://github.com/vastien/java_202020917_EscribanoGomez.java/edit/main/README.md)
+        Clonar el repositorio (https://github.com/vastien/java_202020917_EscribanoGomez.java/edit/Main/README.md)
         
         Windows
         
                 $ cd Desktop
                 $ mkdir javaDobble
                 $ cd javaDobble
-                $ git clone (https://github.com/vastien/java_202020917_EscribanoGomez.java/edit/main/README.md)
+                $ git clone (https://github.com/vastien/java_202020917_EscribanoGomez.java/edit/Main/README.md)
                 
         Unix (Linux and MacOS) 
         
                 $ mkdir javaDobble
                 $ cd javaDobble
-                $ git clone (https://github.com/vastien/java_202020917_EscribanoGomez.java/edit/main/README.md)
+                $ git clone (https://github.com/vastien/java_202020917_EscribanoGomez.java/edit/Main/README.md)
 
         
 ## License

@@ -8,6 +8,9 @@ public class Card {
         this.listElements = (ArrayList)listElements.clone();
     }
 
+    /**
+     * @descr: Métodos selectores y modificadores.
+     */
     public ArrayList<Integer> getListElements() {
         return listElements;
     }

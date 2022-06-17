@@ -4,6 +4,10 @@ public class Player {
     private int score;
     private boolean turnStatus;
 
+    /**
+     * @descr: Método constructor.
+     */
+
     public Player (String name, int score, boolean turnStatus){
         this.name = name;
         this.score = score;
@@ -37,10 +41,10 @@ public class Player {
 
     @Override
     public String toString() {
-        return "Player{" +
-                "name='" + name + '\'' +
-                ", score=" + score +
-                ", turnStatus=" + turnStatus +
+        return "Jugador" +
+                "Nombre: " + name + '\'' +
+                ", Puntaje: " + score +
+                ", Turno Activo: " + turnStatus +
                 '}';
     }
 }
