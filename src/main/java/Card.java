@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Card {
 
@@ -20,7 +21,25 @@ public class Card {
     }
 
     @Override
+    /**
+     * @descr: Método que genera un string de clase Dobble.
+     * @param: No aplica.
+     * @return: String.
+     */
     public String toString() {
         return listElements + "\n";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Card card = (Card) o;
+        return Objects.equals(listElements, card.listElements);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(listElements);
     }
 }

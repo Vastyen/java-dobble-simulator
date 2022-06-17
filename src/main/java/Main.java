@@ -1,25 +1,23 @@
-
 import java.util.*;
-
 
 public class Main {
 
     public static void main(String[] args) {
         int opt;
         String startUser;
-        Scanner sc = new Scanner(System.in);  // Creación del objeto scanner
-
+        Scanner sc = new Scanner(System.in);  // Creación del objeto scanner.
         System.out.println("Registrar como: ");
         startUser = sc.nextLine();
-
+        // Se instancia un jugador inicial con el que se registra el juego.
         Player jugador = new Player(startUser, 0, false);
+        // Se declara un arreglo de jugadores.
         ArrayList<Player> gamePlayers = new ArrayList();
         gamePlayers.add(jugador);
         ArrayList cardsSet = new ArrayList<>();
         ArrayList tempCardsSet = new ArrayList<>();
         ArrayList<String> gameArea = new ArrayList();
+        // Se instancia un juego con parámetros iniciales que serán modificados a lo largo del juego.
         DobbleGame game = new DobbleGame(gameArea, cardsSet, gamePlayers, 1, "No hay juegos activos.");
-
         while (true) {
             System.out.println("### Dobble ###");
             System.out.println("## Registrado como: " + startUser);
@@ -31,6 +29,7 @@ public class Main {
             System.out.println("Introduzca su opción");
             opt = sc.nextInt();
 
+            // Se crea un nuevo juego asignando los valores respectivos a través de inputs.
             if (opt == 1) {
                 System.out.println("####################################");
                 System.out.println("Introduzca la cantidad de elementos de la baraja");
@@ -65,7 +64,6 @@ public class Main {
                 }
                 System.out.println("Introduzca el modo de juego");
                 String gameMode = sc.next();
-
                 if (gameMode.equals("demoMode")){
                     Player cpu1 = new Player("CPU1", 0, false);
                     Player cpu2 = new Player("CPU2", 0, false);
@@ -85,6 +83,7 @@ public class Main {
                 System.out.println("####################################");
             }
 
+            // Se crea añade a un nuevo jugador en el juego.
             if (opt == 2) {
                 System.out.println("####################################");
                 System.out.println("Introduzca el nombre del nuevo jugador");
@@ -98,27 +97,29 @@ public class Main {
                 System.out.println("####################################");
             }
 
-
+            // Se realiza 1 ronda de juego. Es decir, todos los jugadores jugarán 1 vez cada vez que se ejecute la opción de jugar.
             if (opt == 3) {
-
                 ArrayList<Player> jugadores = game.getGamePlayers();
                 int sizePlayers = jugadores.size();
 
+                // Modo de juego stackMode
                 if (game.getGameMode().equals("stackMode")) {
                     for (int i = 0; i <sizePlayers; i++){
-                        game.stackMode();
+                        game.stackMode(game.getGameArea(), game.getGameDeck());
                         jugadores.get(i).setTurnStatus(true);
+                        System.out.println("Es el turno de "+game.whoTurnItIs(gamePlayers));
                         jugadores.get(i).setScore(jugadores.get(i).getScore() + 1);
                         System.out.println(jugadores.get(i).toString());
                         jugadores.get(i).setTurnStatus(false);
                         System.out.println(jugadores.get(i).toString());
                     }
                 }
-
+                // Modo de juego emptyHandsStackMode
                     if (game.getGameMode().equals("emptyHandsStackMode")) {
                         for (int i = 0; i <sizePlayers; i++){
-                            game.emptyHandsStackMode();
+                            game.emptyHandsStackMode(game.getGameArea(), game.getGameDeck());
                             jugadores.get(i).setTurnStatus(true);
+                            System.out.println("Es el turno de "+game.whoTurnItIs(gamePlayers));
                             jugadores.get(i).setScore(jugadores.get(i).getScore() + 1);
                             System.out.println(jugadores.get(i).toString());
                             jugadores.get(i).setTurnStatus(false);
@@ -126,10 +127,12 @@ public class Main {
                         }
                     }
 
+                // Modo de juego myMode
                     if (game.getGameMode().equals("myMode")) {
                         for (int i = 0; i <sizePlayers; i++){
-                            game.myMode();
+                            game.myMode(game.getGameArea(), game.getGameDeck());
                             jugadores.get(i).setTurnStatus(true);
+                            System.out.println("Es el turno de "+game.whoTurnItIs(gamePlayers));
                             jugadores.get(i).setScore(jugadores.get(i).getScore() + 1);
                             System.out.println(jugadores.get(i).toString());
                             jugadores.get(i).setTurnStatus(false);
@@ -137,22 +140,21 @@ public class Main {
                         }
                     }
 
-                    if (game.getGameMode().equals("demoMode") && game.getGameDeck().size()>0){
+                // Modo de juego demoMode
+                if (game.getGameMode().equals("demoMode") && game.getGameDeck().size()>0){
                         for (int i = 0; i<2; i++) {
-                                game.demoMode();
-
-                            System.out.println("Primer turno");
-
-                                jugadores.get(i).setTurnStatus(true);
-                                jugadores.get(i).setScore(jugadores.get(i).getScore() + 1);
-                                System.out.println(jugadores.get(i).toString());
-                                jugadores.get(i).setTurnStatus(false);
-                                System.out.println(jugadores.get(i).toString());
+                            game.demoMode(game.getGameArea(), game.getGameDeck());
+                            jugadores.get(i).setTurnStatus(true);
+                            System.out.println("Es el turno de "+game.whoTurnItIs(gamePlayers));
+                            jugadores.get(i).setScore(jugadores.get(i).getScore() + 1);
+                            System.out.println(jugadores.get(i).toString());
+                            jugadores.get(i).setTurnStatus(false);
+                            System.out.println(jugadores.get(i).toString());
                             }
                         }
-
             }
 
+            // Se muestra el estado general del juego.
             if (opt == 4){
                 System.out.println("####################################");
                 System.out.println("Estado general del juego\n");
@@ -160,7 +162,7 @@ public class Main {
                 System.out.println(game.toString());
                 System.out.println("####################################");
             }
-
+            // Se sale del juego. Termina la ejecución del código.
             if (opt == 5){
                 System.out.println("####################################");
                 System.out.println("Juego finalizado.");

@@ -14,6 +14,10 @@ public class Player {
         this.turnStatus = false; // Por defecto el jugador no está en su turno.
     }
 
+    /**
+     * @descr: Métodos selectores y modificadores.
+     */
+
     public String getName() {
         return name;
     }
@@ -40,11 +44,15 @@ public class Player {
 
 
     @Override
+    /**
+     * @descr: Método que genera un string de clase Dobble.
+     * @param: No aplica.
+     * @return: String.
+     */
     public String toString() {
-        return "Jugador" +
+        return "Jugador\n " +
                 "Nombre: " + name + '\'' +
                 ", Puntaje: " + score +
-                ", Turno Activo: " + turnStatus +
-                '}';
+                ", Turno: " + turnStatus;
     }
 }

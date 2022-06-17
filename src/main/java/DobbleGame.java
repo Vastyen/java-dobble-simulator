@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Random;
 
 public class DobbleGame {
@@ -28,8 +29,6 @@ public class DobbleGame {
     public ArrayList getGameArea() {
         return gameArea;
     }
-
-
 
     public void setGameArea(ArrayList gameArea) {
         this.gameArea = gameArea;
@@ -68,40 +67,50 @@ public class DobbleGame {
     }
 
     /**
-     * @descr: Método que realiza el modo de juego stackMode
+     * @descr: Método que realiza el modo de juego stackMode.
      * @param: No aplica.
      * @return: No aplica.
      */
-    public void stackMode(){
-
-        int sizeDeck = this.gameDeck.size();
-
+    public void stackMode(ArrayList gameArea, ArrayList gameDeck){
+        int sizeDeck = gameDeck.size();
         if (sizeDeck == 1){
-            this.gameArea.add(this.gameDeck.get(0));
-            this.gameDeck.remove(0);
+            gameArea.add(gameDeck.get(0));
+            gameDeck.remove(0);
         }
-
         else{
-            this.gameArea.add(this.gameDeck.get(sizeDeck-1));
-            this.gameArea.add(this.gameDeck.get(sizeDeck-2));
-            this.gameDeck.remove(sizeDeck-1);
-            this.gameDeck.remove(sizeDeck-2);
+            gameArea.add(gameDeck.get(sizeDeck-1));
+            gameArea.add(gameDeck.get(sizeDeck-2));
+            gameDeck.remove(sizeDeck-1);
+            gameDeck.remove(sizeDeck-2);
         }
-
     }
 
     /**
-     * @descr: Método que realiza el modo de juego emptyHandsStackMode
+     * @descr: Método que realiza el modo de juego emptyHandsStackMode.
      * @param: No aplica.
      * @return: No aplica.
      */
-    public void emptyHandsStackMode(){
-        int sizeDeck = this.gameDeck.size();
-        this.gameArea.add(this.gameDeck.get(sizeDeck));
+    public void emptyHandsStackMode(ArrayList gameArea, ArrayList gameDeck){
+        int sizeDeck = gameDeck.size();
+        gameArea.add(gameDeck.get(sizeDeck));
         int randomValue = randomNumber();
-        this.gameArea.add(this.gameDeck.get(randomValue));
-        this.gameDeck.remove(sizeDeck);
-        this.gameDeck.remove(randomValue);
+        gameArea.add(gameDeck.get(randomValue));
+        gameDeck.remove(sizeDeck);
+        gameDeck.remove(randomValue);
+    }
+
+    /**
+     * @descr: Método que busca de quién es el turno en el juego.
+     * @param: ArrayList<Player> Lista de jugadores.
+     * @return: Nombre del jugador (String).
+     */
+    public String whoTurnItIs(ArrayList<Player> gamePlayers){
+        for (int i = 0; i < gamePlayers.size()-1; i++) {
+            if (gamePlayers.get(i).isTurnStatus()) {
+                return gamePlayers.get(i).getName();
+            }
+        }
+        return "null";
     }
 
     /**
@@ -110,12 +119,12 @@ public class DobbleGame {
      * @param: No aplica.
      * @return: No aplica.
      */
-    public void myMode(){
-        int sizeDeck = this.gameDeck.size();
-        this.gameArea.add(this.gameDeck.get(0));
-        this.gameArea.add(this.gameDeck.get(1));
-        this.gameDeck.remove(0);
-        this.gameDeck.remove(0);
+    public void myMode(ArrayList gameArea, ArrayList gameDeck){
+        int sizeDeck = gameDeck.size();
+        gameArea.add(gameDeck.get(0));
+        gameArea.add(gameDeck.get(1));
+        gameDeck.remove(0);
+        gameDeck.remove(0);
     }
 
     /**
@@ -136,16 +145,21 @@ public class DobbleGame {
      * @param: No aplica.
      * @return: No aplica.
      */
-    public void demoMode(){
+    public void demoMode(ArrayList gameArea, ArrayList gameDeck){
         int randomValue1 = randomNumber();
         int randomValue2 = randomNumber();
-        this.gameArea.add(this.gameDeck.get(randomValue1));
-        this.gameDeck.remove(randomValue1);
-        this.gameArea.add(this.gameDeck.get(randomValue2));
-        this.gameDeck.remove(randomValue2);
+        gameArea.add(gameDeck.get(randomValue1));
+        gameDeck.remove(randomValue1);
+        gameArea.add(gameDeck.get(randomValue2));
+        gameDeck.remove(randomValue2);
     }
 
     @Override
+    /**
+     * @descr: Método que genera un string de clase Dobble.
+     * @param: No aplica.
+     * @return: String.
+     */
     public String toString() {
         return "Dobble Game\n" +
                 "Area de Juego: " + gameArea +
@@ -153,5 +167,18 @@ public class DobbleGame {
                 ", Jugadores: " + gamePlayers +
                 ", Número de Jugadores: " + gameNumPlayers +
                 ", Modo de Juego: " + gameMode;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        DobbleGame that = (DobbleGame) o;
+        return gameNumPlayers == that.gameNumPlayers && Objects.equals(gameArea, that.gameArea) && Objects.equals(gameDeck, that.gameDeck) && Objects.equals(gamePlayers, that.gamePlayers) && Objects.equals(gameMode, that.gameMode);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(gameArea, gameDeck, gamePlayers, gameNumPlayers, gameMode);
     }
 }
