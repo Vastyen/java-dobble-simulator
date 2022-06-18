@@ -5,8 +5,8 @@ public class Card {
 
     private ArrayList<Integer> listElements;
 
-    public Card (ArrayList<Integer> listElements){
-        this.listElements = (ArrayList)listElements.clone();
+    public Card(ArrayList<Integer> listElements) {
+        this.listElements = (ArrayList) listElements.clone();
     }
 
     /**
@@ -37,9 +37,6 @@ public class Card {
         Card card = (Card) o;
         return Objects.equals(listElements, card.listElements);
     }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(listElements);
-    }
 }
+
+

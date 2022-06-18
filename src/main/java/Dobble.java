@@ -100,7 +100,6 @@ public class Dobble {
             return false;
         }
         for (int x = 2; x < numero / 2; x++) {
-
             if (numero % x == 0)
                 return false;
         }
@@ -113,11 +112,6 @@ public class Dobble {
         if (o == null || getClass() != o.getClass()) return false;
         Dobble dobble = (Dobble) o;
         return Objects.equals(cardsDeck, dobble.cardsDeck);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(cardsDeck);
     }
 
     @Override

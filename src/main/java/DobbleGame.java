@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 import java.util.Random;
 
@@ -104,13 +103,13 @@ public class DobbleGame {
      * @param: ArrayList<Player> Lista de jugadores.
      * @return: Nombre del jugador (String).
      */
-    public String whoTurnItIs(ArrayList<Player> gamePlayers){
+    public String whoTurnIsIt(ArrayList<Player> gamePlayers){
         for (int i = 0; i < gamePlayers.size()-1; i++) {
             if (gamePlayers.get(i).isTurnStatus()) {
                 return gamePlayers.get(i).getName();
             }
         }
-        return "null";
+        return null;
     }
 
     /**
@@ -177,8 +176,4 @@ public class DobbleGame {
         return gameNumPlayers == that.gameNumPlayers && Objects.equals(gameArea, that.gameArea) && Objects.equals(gameDeck, that.gameDeck) && Objects.equals(gamePlayers, that.gamePlayers) && Objects.equals(gameMode, that.gameMode);
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(gameArea, gameDeck, gamePlayers, gameNumPlayers, gameMode);
-    }
 }

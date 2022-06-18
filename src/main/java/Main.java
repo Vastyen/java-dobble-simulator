@@ -62,6 +62,14 @@ public class Main {
                         mazo.addCard(card);
                     }
                 }
+
+                System.out.println("####################################");
+                System.out.println("Existen 3 modos de juegos");
+                System.out.println("####################################");
+                System.out.println("stackMode");
+                System.out.println("emptyHandsStackMode");
+                System.out.println("demoMode");
+
                 System.out.println("Introduzca el modo de juego");
                 String gameMode = sc.next();
                 if (gameMode.equals("demoMode")){
@@ -107,7 +115,6 @@ public class Main {
                     for (int i = 0; i <sizePlayers; i++){
                         game.stackMode(game.getGameArea(), game.getGameDeck());
                         jugadores.get(i).setTurnStatus(true);
-                        System.out.println("Es el turno de "+game.whoTurnItIs(gamePlayers));
                         jugadores.get(i).setScore(jugadores.get(i).getScore() + 1);
                         System.out.println(jugadores.get(i).toString());
                         jugadores.get(i).setTurnStatus(false);
@@ -119,7 +126,6 @@ public class Main {
                         for (int i = 0; i <sizePlayers; i++){
                             game.emptyHandsStackMode(game.getGameArea(), game.getGameDeck());
                             jugadores.get(i).setTurnStatus(true);
-                            System.out.println("Es el turno de "+game.whoTurnItIs(gamePlayers));
                             jugadores.get(i).setScore(jugadores.get(i).getScore() + 1);
                             System.out.println(jugadores.get(i).toString());
                             jugadores.get(i).setTurnStatus(false);
@@ -132,7 +138,6 @@ public class Main {
                         for (int i = 0; i <sizePlayers; i++){
                             game.myMode(game.getGameArea(), game.getGameDeck());
                             jugadores.get(i).setTurnStatus(true);
-                            System.out.println("Es el turno de "+game.whoTurnItIs(gamePlayers));
                             jugadores.get(i).setScore(jugadores.get(i).getScore() + 1);
                             System.out.println(jugadores.get(i).toString());
                             jugadores.get(i).setTurnStatus(false);
@@ -145,7 +150,6 @@ public class Main {
                         for (int i = 0; i<2; i++) {
                             game.demoMode(game.getGameArea(), game.getGameDeck());
                             jugadores.get(i).setTurnStatus(true);
-                            System.out.println("Es el turno de "+game.whoTurnItIs(gamePlayers));
                             jugadores.get(i).setScore(jugadores.get(i).getScore() + 1);
                             System.out.println(jugadores.get(i).toString());
                             jugadores.get(i).setTurnStatus(false);

@@ -8,6 +8,5 @@ public interface IDobble {
     public int requiredElements();
     public ArrayList missingCards();
     public String toString();
-    public int hashCode();
     public boolean equals();
 }

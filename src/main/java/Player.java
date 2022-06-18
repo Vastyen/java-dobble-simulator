@@ -66,8 +66,5 @@ public class Player {
         return score == player.score && turnStatus == player.turnStatus && Objects.equals(name, player.name);
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(name, score, turnStatus);
-    }
+
 }

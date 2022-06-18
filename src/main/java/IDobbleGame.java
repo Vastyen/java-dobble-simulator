@@ -8,5 +8,4 @@ public interface IDobbleGame {
     public void demoMode();
     public String toString();
     public boolean equals(Object o);
-    public int hashCode();
 }
