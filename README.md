@@ -4,7 +4,7 @@
 Universidad de Santiago de Chile            
 Departamento de Ingeniería Informática                
 Paradigma: Orientado a Objetos           
-Fecha de Entrega: 17 de junio              
+Fecha de Entrega: 17 de junio de 2022               
 Lenguaje de Programación: Java              
 Desarrollador: Bastián Escribano - @vastien              
 Calificación: 6.8
