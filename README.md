@@ -7,6 +7,9 @@ Paradigma: Orientado a Objetos
 Fecha de Entrega: 17 de junio              
 Lenguaje de Programación: Java              
 Desarrollador: Bastián Escribano - @vastien              
+Calificación: 6.8
+
+_____
 
 # Paradigma Orientado a Objetos
 
