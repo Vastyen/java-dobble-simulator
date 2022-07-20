@@ -9,7 +9,7 @@ Lenguaje de Programación: Java
 Desarrollador: Bastián Escribano - @vastien              
 Calificación: 6.8
 
-_____
+____________________
 
 # Paradigma Orientado a Objetos
 
