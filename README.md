@@ -1,12 +1,5 @@
 # Object-Oriented with Java
-## Dobble Simulator with Java
-
-Others Languages
-
-* [Spanish](https://github.com/vastien/java-dobble-simulator/READMEes.md)
-
-_________________________________________________________________
-                  
+## Dobble Simulator with Java    
                   
 Object-Oriented Paradigm                         
 Programming Language: Java                              
@@ -15,8 +8,14 @@ University of Santiago of Chile
 Computer Science Department                
 June, 2022.        
 
+_________________________________________________________________
 
-____________________
+Others Languages
+
+* [Spanish](https://github.com/vastien/java-dobble-simulator/blob/main/READMEes.md)
+
+_________________________________________________________________
+              
 
 # Object-Oriented Paradigm
 OOP (Object-oriented programming) is a programming paradigm based on the concept of "objects", which can contain data and code: data in the form of fields (often known as attributes or properties), and code, in the form of procedures (often known as methods).
